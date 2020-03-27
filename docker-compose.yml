@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+   db:
+     image: jolly3/mysql
+     volumes:
+       - db_data:/var/lib/mysql
+     networks:
+      - outside
+     environment:
+       MYSQL_ROOT_PASSWORD: Ujalasingh12@
+       MYSQL_DATABASE: wpdb
+       MYSQL_USER: jolly
+       MYSQL_PASSWORD: ujala12@
+
+   wordpress:
+     depends_on:
+       - db
+     image: jolly3/wordpressdemo
+     networks:
+      - outside
+     ports:
+       - "8000:80"
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: jolly
+       WORDPRESS_DB_PASSWORD: ujala12@
+       WORDPRESS_DB_NAME: wpdb
+volumes:
+    db_data: {}
+networks:
+  outside:
+    external: true
+    name: MyNet
