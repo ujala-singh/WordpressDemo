@@ -1,17 +1,5 @@
 FROM ubuntu:16.04
 
-# ARG DATABASE_ROOT_PASS 
-
-# RUN apt-get update \
-#  && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
-#  && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mysql.conf.d/mysqld.cnf \
-#  && mkdir /var/run/mysqld \
-#  && chown -R mysql:mysql /var/run/mysqld
-
-# RUN service mysql start \
-#     && mysqladmin -u root password "$DATABASE_ROOT_PASS" \
-#     && mysql -u root -p"$DATABASE_ROOT_PASS" -e "Alter user 'root'@'localhost' identified by '${DATABASE_ROOT_PASS}'" 
-
 ARG MYSQL_PWD_INSTALLATION
 RUN apt-get update -y
 RUN { \
