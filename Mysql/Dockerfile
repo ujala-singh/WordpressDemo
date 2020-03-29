@@ -15,8 +15,10 @@ RUN set -x \
 
 RUN service mysql start
 
-VOLUME ["/var/lib/mysql"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-EXPOSE 3306
+ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["mysqld_safe"]
+EXPOSE 3306 33060
+CMD ["mysqld"]
