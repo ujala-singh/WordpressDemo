@@ -1,9 +1,6 @@
 FROM ubuntu:16.04
 
 ARG MYSQL_PWD_INSTALLATION
-RUN apt-get update -y \
-      && apt-get -y install sudo \
-      && apt-get install -y netcat
 
 RUN sudo apt-get update -y \
     && { \
@@ -25,21 +22,3 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 3306 33060
 CMD ["mysqld"]
-
-
-
-# ENV USER Ujala
-# ENV UID 1000
-# ENV GID 1000
-# ENV PW docker
-
-# RUN useradd -m ${USER} --uid=${UID} && echo "${USER}:${PW}" | \
-#       chpasswd
-
-# RUN chown -R ${USER} /home/${USER} && \
-#     adduser ${USER} sudo && \
-#     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-# USER ${UID}:${GID}
-
-# WORKDIR /home/${USER}
