@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
    db:
-     image: jolly3/mysql
+     image: jolly3/wpback
      volumes:
        - db_data:/var/lib/mysql
      networks:
@@ -16,7 +16,7 @@ services:
    wordpress:
      depends_on:
        - db
-     image: jolly3/wordpressdemo
+     image: jolly3/wpfront
      networks:
       - outside
      ports:
