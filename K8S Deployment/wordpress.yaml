@@ -43,12 +43,6 @@ spec:
             configMapKeyRef:
               name: backend-conf
               key: server-uri
-        # - name: WORDPRESS_DB_PASSWORD
-        #   value: "ujala12@"
-        # - name: WORDPRESS_DB_USER
-        #   value: "jolly"
-        # - name: WORDPRESS_DB_NAME
-        #   value: "mydb"
         - name: WORDPRESS_DB_USER
           valueFrom:
             secretKeyRef:
@@ -67,10 +61,3 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
-      #   volumeMounts:
-      #   - name: wordpress-persistent-storage
-      #     mountPath: /var/www/html
-      # volumes:
-      # - name: wordpress-persistent-storage
-      #   persistentVolumeClaim:
-      #     claimName: wp-pv-claim
