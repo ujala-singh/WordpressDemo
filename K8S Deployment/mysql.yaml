@@ -38,14 +38,6 @@ spec:
       - image: jolly3/wpback
         name: mysql
         env:
-        # - name: MYSQL_ROOT_PASSWORD
-        #   value: "Ujalasingh12@"
-        # - name: MYSQL_DATABASE
-        #   value: "mydb"
-        # - name: MYSQL_USER
-        #   value: "jolly"
-        # - name: MYSQL_PASSWORD
-        #   value: "ujala12@"
         - name: MYSQL_ROOT_PASSWORD 
           valueFrom:
             secretKeyRef:
