@@ -1,7 +1,6 @@
 #!/bin/sh
 DB_DIRECTORY="/var/lib/mysql/mysql"
 chown mysql:mysql -R /var/lib/mysql
-# rm -rf /var/lib/mysql/*
 intilize_data_dir() {
     echo "Initilizing data directory"
     mysqld --initialize-insecure
@@ -18,14 +17,6 @@ wait_for_intilization() {
         fi
     done
 }
-# wait_for_start() {
-#   echo "Waiting to ensure mysql is up & running."
-#   while ! nc -z 127.0.0.1 3306;
-#   do
-#     sleep 1;
-#     echo "Waiting for port 3306..."
-#   done;
-# }
 start_mysql() {
     echo "Starting mysql service"
     service mysql start
@@ -62,12 +53,10 @@ main() {
         intilize_data_dir
         wait_for_intilization
         start_mysql
-        # wait_for_start
         change_root_password
         create_db
     else
         start_mysql
-        # wait_for_start
         create_db
     fi
 }
