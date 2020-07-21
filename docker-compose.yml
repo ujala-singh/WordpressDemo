@@ -11,7 +11,7 @@ services:
        MYSQL_ROOT_PASSWORD: Ujalasingh12@
        MYSQL_DATABASE: wpdb
        MYSQL_USER: jolly
-       MYSQL_PASSWORD: ujala12@
+       MYSQL_PASSWORD: ujalasingh12@
 
    wordpress:
      depends_on:
@@ -24,7 +24,7 @@ services:
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: jolly
-       WORDPRESS_DB_PASSWORD: ujala12@
+       WORDPRESS_DB_PASSWORD: ujalasingh12@
        WORDPRESS_DB_NAME: wpdb
 volumes:
     db_data: {}
